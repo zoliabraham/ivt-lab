@@ -1,4 +1,5 @@
 package hu.bme.mit.spaceship;
+//adott sor branch-A
 
 /**
 * A simple spaceship with two proton torpedo stores and four lasers
