@@ -2,9 +2,9 @@ name: Build
 on:
   push:
     branches:
-      - master
+      [main]
   pull_request:
-    types: [opened, synchronize, reopened]
+    types: [main, opened, synchronize, reopened]
 jobs:
   build:
     name: Build
@@ -34,3 +34,5 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
+      - name: Build with Maven
+        run: mvn -B package --file pom.xml
